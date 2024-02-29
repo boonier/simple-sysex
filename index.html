@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/webmidi@latest/dist/iife/webmidi.iife.js"></script>
+
+  <script type="module">
+
+    // Enable WEBMIDI.js and trigger the onEnabled() function when ready
+    WebMidi
+      .enable()
+      .then(onEnabled)
+      .catch(err => alert(err));
+
+    // Function triggered when WEBMIDI.js is ready
+    function onEnabled() {
+
+      // Display available MIDI input devices
+      if (WebMidi.inputs.length < 1) {
+        document.body.innerHTML += "No device detected.";
+      } else {
+        WebMidi.inputs.forEach((device, index) => {
+          document.body.innerHTML += `${index}: ${device.name} <br>`;
+        });
+      }
+
+    }
+
+  </script>
+</head>
+
+<body>
+  Hello world
+  <script src="script.js"></script>
+</body>
+
+</html>
