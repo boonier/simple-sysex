@@ -7,35 +7,24 @@
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/webmidi@latest/dist/iife/webmidi.iife.js"></script>
-
-  <script type="module">
-
-    // Enable WEBMIDI.js and trigger the onEnabled() function when ready
-    WebMidi
-      .enable()
-      .then(onEnabled)
-      .catch(err => alert(err));
-
-    // Function triggered when WEBMIDI.js is ready
-    function onEnabled() {
-
-      // Display available MIDI input devices
-      if (WebMidi.inputs.length < 1) {
-        document.body.innerHTML += "No device detected.";
-      } else {
-        WebMidi.inputs.forEach((device, index) => {
-          document.body.innerHTML += `${index}: ${device.name} <br>`;
-        });
-      }
-
-    }
-
-  </script>
 </head>
 
 <body>
-  Hello world
-  <script src="script.js"></script>
+  <div id="io"></div>
+  <div id="control">
+    <!-- <button>Send to JV-2080</button> -->
+    <div>
+      <div>Filter</div>
+      <input id="cutoff" type="range" min="0" max="127" value="20" />
+      <input id="cutoff-val" type="text">
+    </div>
+    <div>
+      <div>Resonance</div>
+      <input id="res" type="range" min="0" max="127" value="20" />
+      <input id="res-val" type="text">
+    </div>
+  </div>
+  <script src="script.js" type="module"></script>
 </body>
 
 </html>

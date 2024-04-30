@@ -2,3 +2,21 @@ html {
   height: 100%;
   width: 100%;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+#io {
+  padding: 5px;
+  border: 1px solid #ccc;
+
+}
+
+#control {
+  margin: 20px 0;
+}
+
+input[type=text] {
+  border: none;
+}
